@@ -1,6 +1,13 @@
-var checkPostalCode = fetch("https://geocoder.ca/T0H 2N2?json=1")
+var checkPostalCode = fetch("https://geocoder.ca/N6H 000?json=1")
 .then(res => res.json())
-.then(r => console.log(r));
+.then(r => {
+    if(r.err){
+        throw Error('Postal code not found')
+    }else
+        console.log(r)
+    
+})
+.catch(err => console.group(err))
 
 console.log(checkPostalCode);
 
